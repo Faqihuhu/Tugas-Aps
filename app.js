@@ -69,7 +69,7 @@ for (let d = 1; d <= 14; d++) {
   for (const a of Object.keys(AP)) {
     for (const b of Object.keys(AP)) {
       if (a === b) continue;
-      const hp = [...(a + b)].sort().join('').split('').reduce((s, c) => (s * 31 + c.charCodeAt(0)) % 997, 7);
+      const hp = [...(a + b)].sort((x, y) => x.localeCompare(y)).reduce((s, c) => (s * 31 + c.charCodeAt(0)) % 997, 7);
       [6, 9, 13, 18].forEach((hr, i) => {
         const al = AL[(hp + i + d) % 4];
         const dep = hr * 60 + ((hp + i) % 4) * 15;
